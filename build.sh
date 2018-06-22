@@ -11,8 +11,9 @@ echo -e "${HIGHLIGHT}Copying D3M data..${NC}"
 mkdir -p ./server/data/d3m
 for DATASET in "${DATASETS[@]}"
 do
-    echo "cp $HOST_DATA_DIR/$DATASET into ./server/data/d3m/$DATASET"
-    cp -r $HOST_DATA_DIR/$DATASET ./server/data/d3m
+    echo "cp $HOST_DATA_DIR/$DATASET/TRAIN/dataset_TRAIN/media into ./server/data/d3m/$DATASET/media"
+    mkdir -p ./server/data/d3m/$DATASET
+    cp -r $HOST_DATA_DIR/$DATASET/TRAIN/dataset_TRAIN/media ./server/data/d3m/$DATASET
 done
 
 echo -e "${HIGHLIGHT}Building image ${DOCKER_IMAGE_NAME}...${NC}"
